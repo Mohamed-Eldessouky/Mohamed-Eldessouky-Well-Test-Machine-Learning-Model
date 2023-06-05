@@ -7,5 +7,4 @@ Pillow==9.5.0
 streamlit==1.23.1
 tensorflow==2.12.0
 tensorflow_intel<=2.12.0rc1
-sklearn==0.0.post1
 scikit-learn==1.2.2
