@@ -44,6 +44,7 @@ col1,col2,col3 = st.columns([2,0.3,1.3],gap='small')
 with col3:
   image = Image.open('ML.jpg')
   st.image(image)
+  st.subheader("“If you invent a breakthrough in artificial intelligence, so machines can learn, that is worth 10 Microsofts.” -Bill Gates")
   st.write('####')
   prediction_method = st.selectbox('Prediction Machine Learning Method', ['Neural Network', 'Extra Trees'])
   actual_fluid_rate = st.number_input('Actual Fluid Rate (if available)')
