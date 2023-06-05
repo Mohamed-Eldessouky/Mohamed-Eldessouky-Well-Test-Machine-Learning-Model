@@ -40,8 +40,8 @@ div[class*="stAlert"] p {
 """
 st.write(tabs_font_css, unsafe_allow_html=True)
 
-col1,col2,col3 = st.columns([1.3,0.3,2],gap='small')
-with col1:
+col1,col2,col3 = st.columns([2,0.3,1.3],gap='small')
+with col3:
   image = Image.open('ML.jpg')
   st.image(image)
   st.subheader("“If you invent a breakthrough in artificial intelligence, so machines can learn, that is worth 10 Microsofts.” -Bill Gates")
@@ -51,7 +51,7 @@ with col1:
   test_method = st.selectbox('Testing Method', ['Separator', 'PTS', 'MPFM', 'Clamp on meter', 'Other'])
   remarks = st.text_area("Remarks")
 
-with col3:
+with col1:
   st.header('Well Test Machine Learning Model')
   date = st.date_input('Date')
   field = st.text_input('Field')
