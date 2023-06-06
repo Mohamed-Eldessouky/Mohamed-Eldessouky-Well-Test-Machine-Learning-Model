@@ -10,21 +10,23 @@ import altair as alt
 
 st.set_page_config(page_title='Well Test ML Model', layout='wide')
 
+
 tabs_font_css = """
 <style type="text/css">
+
 h2 {text-align: center;
 font-weight:700;
-color:#162D32}
+color:#244952}
 
 h3 {text-align: center;
-font-weight:700;
-font-size: calc(0.5rem + .6vw);
-color:#162D32}
+font-weight:600;
+font-size: calc(0.4rem + .6vw);
+color:#244952}
 
 p {color:#3B7C89;
 font-weight:700;}
 
-.css-184tjsw p {
+.css-16idsys p {
 font-size:16px;
 }
 
@@ -36,6 +38,7 @@ div[class*="stAlert"] p {
   color: #414141;
   font-weight:500;
 }
+
 <style>
 """
 st.write(tabs_font_css, unsafe_allow_html=True)
@@ -52,7 +55,13 @@ with col3:
   remarks = st.text_area("Remarks")
 
 with col1:
-  st.header('Well Test Machine Learning Model')
+  col6,col7=st.columns([1,6])
+  with col6:
+    image1 = Image.open('logo.jpg')
+    st.image(image1)
+  with col7:
+     st.header('Well Test Machine Learning Model')
+     st.subheader('by Eng. Mohamed Elhussien Eldessouky')
   date = st.date_input('Date')
   field = st.text_input('Field')
   well = st.text_input('Well')
@@ -92,8 +101,6 @@ with col1:
           predcited_oil_rate = int(predcited_fluid_rate * (1-(WC/100)))
           
           st.success('Model run successfully')
-          st.subheader('Fluid Rate = ' + str(predcited_fluid_rate)+' BFPD')
-          st.subheader(':green[Oil Rate = ' + str(predcited_oil_rate)+' BOPD]')
 
           df_chart1 = pd.DataFrame({'Predicted Rate':['Fluid Rate', 'Oil Rate'], 'BPD':[predcited_fluid_rate, predcited_oil_rate]})
           c1 = alt.Chart(df_chart1).mark_bar().encode(x='Predicted Rate', y=alt.Y('BPD', scale=alt.Scale(domain=[0, round(max(predcited_fluid_rate, actual_fluid_rate)+500,-3)])),
@@ -104,12 +111,17 @@ with col1:
               color=alt.Color('Actual Rate', scale=alt.Scale(domain=['Fluid Rate', 'Oil Rate'], range=['black', 'green']))).properties(width=alt.Step(70))
 
           col4, col5 = st.columns(2)
+          col4.subheader('Fluid Rate = ' + str(round(predcited_fluid_rate,-1))+' BFPD')
+          col4.subheader(':green[Oil Rate = ' + str(predcited_oil_rate)+' BOPD]')
           col4.altair_chart(c1)
           if actual_fluid_rate > 0:
+              col5.write('##')
+              col5.write('##')
+              col5.write('##')
               col5.altair_chart(c2)
 
           fields = [date, field, well, WHP, WHT, Pr, Tr, WC, IG, DS, Wg, Tubing_type, 
               Well_type, actual_fluid_rate, test_method, predcited_fluid_rate, prediction_method, remarks]
           with open('Well Tests Database.csv','a', newline='', encoding='utf8', errors = 'ignore') as f:
               writer = csv.writer(f)
-              writer.writerow(fields) 
+              writer.writerow(fields)
