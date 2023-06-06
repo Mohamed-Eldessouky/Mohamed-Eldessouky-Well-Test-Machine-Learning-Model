@@ -19,7 +19,7 @@ font-weight:700;
 color:#244952}
 
 h3 {text-align: center;
-font-weight:600;
+font-weight:700;
 font-size: calc(0.4rem + .6vw);
 color:#244952}
 
