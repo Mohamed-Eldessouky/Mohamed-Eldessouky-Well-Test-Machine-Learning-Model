@@ -9,13 +9,14 @@ Consequently to overcome the above difficulties, virtual testing techniques, eit
 
 In this notebook, a new data driven model is introduced to overcome the previous shortcomings of physical and virtual testing methods. The model is based on machine learning/deep learning methods, where the model shows outstanding simplicity and applicability in only few seconds for predicting fluid rate with relatively high accuracy compared to the commonly used methods in the company. The applied steps for building the model are summarized as following:
 
-Analyzing General Energy Equation for fluid mechanics to select the relevant inputs
-Filtering the selected inputs according to the availability of actual recorded data
-Collecting sample of data from the company database
-Testing model performance against data sample
-Selecting important features using three different approaches
-Collecting new data only for selected features
-Exploring the data variables using Exploratory Data Analysis (EDA)
-Comparing the results of different machine learning models and selecting the best model.
-Optimizing the model by hyperparameters fine tuning
-Applying the same data on deep learning model and comparing the results.
+1. Analyzing General Energy Equation for fluid mechanics to select the relevant inputs
+2. Filtering the selected inputs according to the availability of actual recorded data
+3. Collecting sample of data from the company database to run prototype model
+4. Selecting important features using three different approaches
+5. Collecting new data only for selected features
+6. Exploring the data variables using Exploratory Data Analysis (EDA)
+7. Feature Engineering
+8. Comparing the results of different machine learning models and selecting the best model
+9. Optimizing the model by hyperparameters fine tuning
+10.Developing a deep learning model and comparing the results
+11.Deploying the models using Streamlit app
