@@ -18,5 +18,5 @@ In this notebook, a new data driven model is introduced to overcome the previous
 7. Feature Engineering
 8. Comparing the results of different machine learning models and selecting the best model
 9. Optimizing the model by hyperparameters fine tuning
-10.Developing a deep learning model and comparing the results
-11.Deploying the models using Streamlit app
+10. Developing a deep learning model and comparing the results
+11. Deploying the models using Streamlit app
