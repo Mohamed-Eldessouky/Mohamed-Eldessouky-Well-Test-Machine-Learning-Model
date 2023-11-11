@@ -49,7 +49,7 @@ with col3:
   st.image(image)
   st.subheader("“If you invent a breakthrough in artificial intelligence, so machines can learn, that is worth 10 Microsofts.” -Bill Gates")
   st.write('####')
-  prediction_method = st.selectbox('Prediction Machine Learning Method', ['Neural Network', 'Extra Trees', 'Linear'])
+  prediction_method = st.selectbox('Prediction Machine Learning Method', ['Neural Network', 'XGboost', 'Extra Trees', 'Linear'])
   actual_fluid_rate = st.number_input('Actual Fluid Rate (if available)')
   test_method = st.selectbox('Testing Method', ['Separator', 'PTS', 'MPFM', 'Clamp on meter', 'Other'])
   remarks = st.text_area("Remarks")
@@ -83,7 +83,8 @@ with col1:
                     columns=['WHP', 'WHT', 'Tr', 'Ɣw', 'Pr', 'Tubing_type', 'WC', 'I.GAS', 'D/S', 'Well_type'])
 
   ct_st = joblib.load('column_transformer_st.joblib')
-  pipe = joblib.load('pipeline_ex.joblib')
+  pipe_ex = joblib.load('pipeline_ex.joblib')
+  pipe_XG = joblib.load('pipeline_XG.joblib')
   pipe_lin = joblib.load('pipeline_lin.joblib')
   model = load_model('ANN_model.h5')
       
@@ -96,9 +97,12 @@ with col1:
       else:
           if prediction_method == 'Neural Network':
               predcited_fluid_rate = int(model.predict(ct_st.transform(df)))
-
+            
           elif prediction_method == 'Extra Trees':
-              predcited_fluid_rate = int(pipe.predict(df))
+              predcited_fluid_rate = int(pipe_ex.predict(df))
+            
+          elif prediction_method == 'XGboost':
+              predcited_fluid_rate = int(pipe_XG.predict(df))
           
           elif prediction_method == 'Linear':
               predcited_fluid_rate = int(pipe_lin.predict(df))
