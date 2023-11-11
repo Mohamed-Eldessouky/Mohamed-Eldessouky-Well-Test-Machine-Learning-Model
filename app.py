@@ -100,9 +100,6 @@ with col1:
             
           elif prediction_method == 'Extra Trees':
               predcited_fluid_rate = int(pipe_ex.predict(df))
-            
-          elif prediction_method == 'XGboost':
-              predcited_fluid_rate = int(pipe_XG.predict(df))
           
           elif prediction_method == 'Linear':
               predcited_fluid_rate = int(pipe_lin.predict(df))
