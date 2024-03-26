@@ -84,7 +84,7 @@ with col1:
 
   ct_st = joblib.load('column_transformer_st.joblib')
   pipe_ex = joblib.load('pipeline_ex.joblib')
-
+  pipe_XGB = joblib.load('pipeline_XG.joblib')
   pipe_lin = joblib.load('pipeline_lin.joblib')
   model = load_model('ANN_model.h5')
       
@@ -102,7 +102,7 @@ with col1:
               predcited_fluid_rate = int(pipe_ex.predict(df))
                       
           elif prediction_method == 'XGboost':
-              predcited_fluid_rate = int(pipe_XG.predict(df))
+              predcited_fluid_rate = int(pipe_XGB.predict(df))
             
           elif prediction_method == 'Linear':
               predcited_fluid_rate = int(pipe_lin.predict(df))
