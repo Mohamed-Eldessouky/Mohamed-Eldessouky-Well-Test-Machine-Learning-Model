@@ -84,7 +84,7 @@ with col1:
 
   ct_st = joblib.load('column_transformer_st.joblib')
   pipe_ex = joblib.load('pipeline_ex.joblib')
-  
+ pipe_XGB = joblib.load('pipeline_XG.joblib')
   pipe_lin = joblib.load('pipeline_lin.joblib')
   model = load_model('ANN_model.h5')
       
